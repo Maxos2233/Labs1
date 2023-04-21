@@ -18,7 +18,6 @@ namespace ConsoleApp2
             var primary = 1;
 
 
-
             while (i < n)
             {
                 var copyOfi = i;
@@ -43,15 +42,14 @@ namespace ConsoleApp2
                 }
 
 
-                if (deviders.Count <= 1 && primary != 1)
-                {
-                    numbers.Add(primary);
-                }
-                else
-                {
-                    deviders.Clear();
-                }
-
+                    if (deviders.Count <= 1)
+                    {
+                        numbers.Add(primary);
+                    }
+                    else
+                    {
+                        deviders.Clear();
+                    }
                 deviders.Clear();
                 i++;
                 devider = 2;
