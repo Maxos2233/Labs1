@@ -10,14 +10,15 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            List<int> numbers = new List<int>() { 22, 2, 8, 2, 5, 32 };
-            int n = 0;
-            int n2 = 0;
+            List<int> numbers = new List<int>() { -112, -11, 11, -12, -753};
+            var copyofi = 0;
             List<int> numbersMaximum = new List<int>();
             List<int> numbersMinimal = new List<int>();
             foreach (var i in numbers)
             {
-                if (i > n)
+                
+                
+                if (i >= copyofi)
                 {
                     numbersMaximum.Clear();
                     numbersMaximum.Add(i);
@@ -25,17 +26,11 @@ namespace ConsoleApp3
                 }
                 else
                 {
-                    continue;
+                    copyofi = i;
+                    
                 }
-                n = i;
 
-            }
-
-
-            foreach (var i in numbers)
-            {
-
-                if (i < n2)
+                if (i <= copyofi)
                 {
                     numbersMinimal.Clear();
                     numbersMinimal.Add(i);
@@ -44,11 +39,14 @@ namespace ConsoleApp3
                 }
                 else
                 {
-                    n2 = i;
-                    continue;
+                    copyofi = i;
+                    
                 }
 
+                copyofi = i;
+
             }
+
             Console.WriteLine(string.Join(" ", numbersMaximum));
             Console.WriteLine(string.Join(" ", numbersMinimal));
 
