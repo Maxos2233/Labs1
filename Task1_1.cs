@@ -4,52 +4,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp2
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            List<int> numbers = new List<int>() { -112, -11, 11, -12, -753};
-            var copyofi = 0;
-            List<int> numbersMaximum = new List<int>();
-            List<int> numbersMinimal = new List<int>();
-            foreach (var i in numbers)
+            List<int> numbers = new List<int>() { 1, 0, 12, -33, 6};
+            var min = numbers[0];
+            var max = numbers[0];
+
+            var positionMax = 0;
+            var positionMin = 0;
+
+            for (int i = 1; i < numbers.Count; i++)
             {
-                
-                
-                if (i >= copyofi)
+                if (max < numbers[i])
                 {
-                    numbersMaximum.Clear();
-                    numbersMaximum.Add(i);
-                    numbersMaximum.Add(numbers.IndexOf(i));
-                }
-                else
-                {
-                    copyofi = i;
-                    
+                    max = numbers[i];
+                    positionMax = i;
                 }
 
-                if (i <= copyofi)
+                if (min > numbers[i])
                 {
-                    numbersMinimal.Clear();
-                    numbersMinimal.Add(i);
-                    numbersMinimal.Add(numbers.IndexOf(i));
-
+                    min = numbers[i];
+                    positionMin = i;
                 }
-                else
-                {
-                    copyofi = i;
-                    
-                }
-
-                copyofi = i;
 
             }
 
-            Console.WriteLine(string.Join(" ", numbersMaximum));
-            Console.WriteLine(string.Join(" ", numbersMinimal));
-
+            Console.WriteLine(min + " " + positionMin);
+            Console.WriteLine(max + " " + positionMax);
             Console.ReadKey();
         }
     }
